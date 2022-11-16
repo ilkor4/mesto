@@ -18,5 +18,16 @@
 /* Подключил стили к контенту */
 @import url(../blocks/content/content.css);
 
+/* Подключил стили к секции Профиль */
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__image/profile__image.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__wrapper/profile__wrapper.css);
+@import url(../blocks/profile/__name/profile__name.css);
+@import url(../blocks/profile/__edit-button/profile__edit-button.css);
+@import url(../blocks/profile/__signanure/profile__signature.css);
+@import url(../blocks/profile/__add-button/profile__add-button.css);
+
 /* Подключил стили к подвалу */
 @import url(../blocks/footer/footer.css);
