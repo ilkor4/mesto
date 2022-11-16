@@ -1,0 +1,22 @@
+/* Подключил normalize */
+@import url(../vendor/normalize.css);
+
+/* Подключил шрифты */
+@import url(../vendor/fonts/fonts.css);
+
+/* Подключил стили к обёртке */
+@import url(../blocks/wrapper/wrapper.css);
+
+/* Подключил стили к странице */
+@import url(../blocks/page/page.css);
+
+/* Подключил стили к шапке */
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__logo/header__logo.css);
+@import url(../blocks/header/__line/header__line.css);
+
+/* Подключил стили к контенту */
+@import url(../blocks/content/content.css);
+
+/* Подключил стили к подвалу */
+@import url(../blocks/footer/footer.css);
