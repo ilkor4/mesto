@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./pages/index.css">
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
 </head>
-<body><!--Тело-->
+<body style="background-color: black;"><!--Тело-->
   <div class="wrapper"><!--Обёртка-->
     <div class="page"><!--Страница-->
       <header class="header"><!--Голова-->
@@ -25,61 +25,74 @@
           </div>
           <div class="profile__info">
             <div class="profile__wrapper">
-              <p class="profile__name">Жак-Ив Кусто</p>
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
               <button class="profile__edit-button"></button>
             </div>
             <p class="profile__signature">Исследователь океана</p>
           </div>
           <button class="profile__add-button"></button>
         </section>
-        <section class="elements"><!--Секция элементы-->
-          <div class="element"><!--Алтай-->
-            <img src="./images/elements/altai.jpg" alt="Алтай" class="element__image">
-            <div class="element__wrapper">
-              <h2 class="element__title">Алтай</h2>
-              <div class="element__heart"></div>
-            </div>
-          </div>
-          <div class="element"><!--Байкал-->
-            <img src="./images/elements/baikal.jpg" alt="Байкал" class="element__image">
-            <div class="element__wrapper">
-              <h2 class="element__title">Байкал</h2>
-              <div class="element__heart"></div>
-            </div>
-          </div>
-          <div class="element"><!--Домбай-->
-            <img src=".//images/elements/dombai.jpg" alt="Домбай" class="element__image">
-            <div class="element__wrapper">
-              <h2 class="element__title">Домбай</h2>
-              <div class="element__heart"></div>
-            </div>
-          </div>
-          <div class="element"><!--Эльбрус-->
-            <img src="./images/elements/elbrus.jpg" alt="Эльбрус" class="element__image">
-            <div class="element__wrapper">
-              <h2 class="element__title">Эльбрус</h2>
-              <div class="element__heart"></div>
-            </div>
-          </div>
-          <div class="element"><!--Владивосток-->
-            <img src="./images/elements/vladivostok.jpg" alt="Владивосток" class="element__image">
-            <div class="element__wrapper">
-              <h2 class="element__title">Владивосток</h2>
-              <div class="element__heart"></div>
-            </div>
-          </div>
-          <div class="element"><!--Волга-->
-            <img src="./images/elements/volga.jpg" alt="Волга" class="element__image">
-            <div class="element__wrapper">
-              <h2 class="element__title">Волга</h2>
-              <div class="element__heart"></div>
-            </div>
-          </div>
+        <section aria-label="Элементы"><!--Секция элементы-->
+          <ul class="elements">
+            <li class="element"><!--Алтай-->
+              <img src="./images/elements/altai.jpg" alt="Алтай" class="element__image">
+              <div class="element__wrapper">
+                <h2 class="element__title">Алтай</h2>
+                <div class="element__heart"></div>
+              </div>
+            </li>
+            <li class="element"><!--Байкал-->
+              <img src="./images/elements/baikal.jpg" alt="Байкал" class="element__image">
+              <div class="element__wrapper">
+                <h2 class="element__title">Байкал</h2>
+                <div class="element__heart"></div>
+              </div>
+            </li>
+            <li class="element"><!--Домбай-->
+              <img src=".//images/elements/dombai.jpg" alt="Домбай" class="element__image">
+              <div class="element__wrapper">
+                <h2 class="element__title">Домбай</h2>
+                <div class="element__heart"></div>
+              </div>
+            </li>
+            <li class="element"><!--Эльбрус-->
+              <img src="./images/elements/elbrus.jpg" alt="Эльбрус" class="element__image">
+              <div class="element__wrapper">
+                <h2 class="element__title">Эльбрус</h2>
+                <div class="element__heart"></div>
+              </div>
+            </li>
+            <li class="element"><!--Владивосток-->
+              <img src="./images/elements/vladivostok.jpg" alt="Владивосток" class="element__image">
+              <div class="element__wrapper">
+                <h2 class="element__title">Владивосток</h2>
+                <div class="element__heart"></div>
+              </div>
+            </li>
+            <li class="element"><!--Волга-->
+              <img src="./images/elements/volga.jpg" alt="Волга" class="element__image">
+              <div class="element__wrapper">
+                <h2 class="element__title">Волга</h2>
+                <div class="element__heart"></div>
+              </div>
+            </li>
+          </ul>
         </section>
       </main>
       <footer class="footer"><!--Подвал-->
         <p class="footer__copyright">© 2020 Mesto Russia</p>
       </footer>
+      <div class="popup"><!--Попап-->
+        <button class="popup__close-button"></button>
+        <form action="#" class="popup__container">
+          <fieldset class="popup__fields">
+            <legend class="popup__title">Редактировать профиль</legend>
+            <input placeholder="Имя" name="Имя" required class="popup__input-name" type="text">
+            <input placeholder="О себе" name="О себе" required type="text" class="popup__input-signature">
+            <button class="popup__save-button">Сохранить</button>
+          </fieldset>
+        </form>
+      </div>
     </div>
   </div>
   <script></script><!--Скрипты-->
