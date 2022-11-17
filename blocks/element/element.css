@@ -1,0 +1,13 @@
+.element {
+  background-color: white;
+  border-radius: 10px;
+  width: 282px;
+  height: 361px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  justify-self: center;
+}
