@@ -10,9 +10,7 @@
   border: none;
   display: flex;
   transition: 0.6s ease;
-  position: fixed;
-  top: calc(50% - 205px);
-  left: calc(50% + 223px);
+  transform: translate(438px, -8px);
 }
 
 .popup__close-button:hover {
@@ -24,7 +22,6 @@
   .popup__close-button {
     width: 20px;
     height: 20px;
-    top: calc(50% - 197px);
-    left: calc(50% + 121px);
+    transform: translate(262px, -16px);
   }
 }

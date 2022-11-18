@@ -1,0 +1,9 @@
+.form__input_type_signature {
+  margin: 15px auto 24px;
+}
+
+@media  screen and (max-width: 568px) {
+  .form__input_type_signature{
+    margin: 15px auto 23px;
+  }
+}

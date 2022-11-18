@@ -1,21 +1,6 @@
 .popup__container {
-  padding: 34px 0 37px 36px;
-  box-sizing: border-box;
-  max-width: 430px;
-  min-height: 330px;
-  background-color: white;
-  border-radius: 10px;
   position: fixed;
-  top: calc(50% - 165px);
-  left: calc(50% - 215px);
-}
-
-@media  screen and (max-width: 568px) {
-  .popup__container{
-    padding: 25px 0 25px 22px;
-    max-width: 282px;
-    min-height: 322px;
-    top: calc(50% - 161px);
-    left: calc(50% - 141px);
-  }
+  top: calc(50%);
+  left: calc(50%);
+  transform: translate(-50%, -50%);
 }

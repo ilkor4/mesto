@@ -1,5 +1,4 @@
-.popup__input-name {
-  margin: 27px auto 15px;
+.form__input {
   padding: 0 0 7px;
   box-sizing: border-box;
   width: 358px;
@@ -10,13 +9,12 @@
   line-height: 1.21;
 }
 
-.popup__input-name:focus {
+.form__input:focus {
   outline: none;
 }
 
 @media  screen and (max-width: 568px) {
-  .popup__input-name{
-    margin: 37px auto 15px;
+  .form__input{
     width: 238px;
   }
 }

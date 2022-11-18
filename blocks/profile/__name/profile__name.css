@@ -3,16 +3,22 @@
   font-weight: 500;
   font-size: 42px;
   line-height: 1.14;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 294px;
 }
 
 @media screen and (max-width: 984px) {
   .profile__name{
+    max-width: 240px;
     font-size: 34px;
   }
 }
 
 @media screen and (max-width: 568px) {
   .profile__name{
+    max-width: 189px;
     font-size: 27px;
     line-height: 1.22;
   }
