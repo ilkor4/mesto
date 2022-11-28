@@ -31,55 +31,23 @@
         </section>
         <section aria-label="Элементы"><!--Секция элементы-->
           <ul class="elements">
-            <li class="element"><!--Алтай-->
-              <img src="./images/elements/altai.jpg" alt="Алтай" class="element__image">
-              <div class="element__wrapper">
-                <h2 class="element__title">Алтай</h2>
-                <button class="element__heart" type="button"></button>
-              </div>
-            </li>
-            <li class="element"><!--Байкал-->
-              <img src="./images/elements/baikal.jpg" alt="Байкал" class="element__image">
-              <div class="element__wrapper">
-                <h2 class="element__title">Байкал</h2>
-                <button class="element__heart" type="button"></button>
-              </div>
-            </li>
-            <li class="element"><!--Домбай-->
-              <img src=".//images/elements/dombai.jpg" alt="Домбай" class="element__image">
-              <div class="element__wrapper">
-                <h2 class="element__title">Домбай</h2>
-                <button class="element__heart" type="button"></button>
-              </div>
-            </li>
-            <li class="element"><!--Эльбрус-->
-              <img src="./images/elements/elbrus.jpg" alt="Эльбрус" class="element__image">
-              <div class="element__wrapper">
-                <h2 class="element__title">Эльбрус</h2>
-                <button class="element__heart" type="button"></button>
-              </div>
-            </li>
-            <li class="element"><!--Владивосток-->
-              <img src="./images/elements/vladivostok.jpg" alt="Владивосток" class="element__image">
-              <div class="element__wrapper">
-                <h2 class="element__title">Владивосток</h2>
-                <button class="element__heart" type="button"></button>
-              </div>
-            </li>
-            <li class="element"><!--Волга-->
-              <img src="./images/elements/volga.jpg" alt="Волга" class="element__image">
-              <div class="element__wrapper">
-                <h2 class="element__title">Волга</h2>
-                <button class="element__heart" type="button"></button>
-              </div>
-            </li>
+            <template class="card"><!--Темлэйт-->
+              <li class="element">
+                <img  class="element__image">
+                <button class="element__delete-button" type="button"></button>
+                <div class="element__wrapper">
+                  <h2 class="element__title"></h2>
+                  <button class="element__heart" type="button"></button>
+                </div>
+              </li>
+            </template>
           </ul>
         </section>
       </main>
       <footer class="footer"><!--Подвал-->
         <p class="footer__copyright">© 2022 Mesto Russia</p>
       </footer>
-      <div class="popup"><!--Попап-->
+      <div class="popup popup_type_edit"><!--Попап редактирования профиля-->
         <div class="popup__container">
           <button class="popup__close-button" type="button"></button>
           <form action="#" class="form" name="form">
@@ -90,6 +58,26 @@
               <button class="form__save-button" type="submit">Сохранить</button>
             </fieldset>
           </form>
+        </div>
+      </div>
+      <div class="popup popup_type_add"><!--Попап добавления карточки-->
+        <div class="popup__container">
+          <button class="popup__close-button" type="button"></button>
+          <form action="#" class="form" name="form">
+            <fieldset class="form__fields">
+              <legend class="form__title">Новое место</legend>
+              <input placeholder="Название" name="input-name" required class="form__input form__input_type_name" type="text" >
+              <input placeholder="Ссылка на картинку" name="input-link" required type="text" class="form__input form__input_type_link">
+              <button class="form__save-button" type="submit">Сохранить</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <div class="popup popup_type_photo"><!--Попап просмотра фото-->
+        <div class="popup__container">
+          <button class="popup__close-button" type="button"></button>
+          <img class="popup__image">
+          <h3 class="popup__title"></h3>
         </div>
       </div>
     </div>
