@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="ru">
 <head><!--Голова-->
     <meta charset="UTF-8">
     <title>Mesto</title>
@@ -31,7 +30,7 @@
         </section>
         <section aria-label="Элементы"><!--Секция элементы-->
           <ul class="elements">
-            <template class="card"><!--Темлэйт-->
+            <template id="card"><!--Темлэйт-->
               <li class="element">
                 <img  class="element__image">
                 <button class="element__delete-button" type="button"></button>
@@ -50,7 +49,7 @@
       <div class="popup popup_type_edit"><!--Попап редактирования профиля-->
         <div class="popup__container">
           <button class="popup__close-button" type="button"></button>
-          <form action="#" class="form" name="form">
+          <form action="#" class="form" name="form-edit">
             <fieldset class="form__fields">
               <legend class="form__title">Редактировать профиль</legend>
               <input placeholder="Имя" name="input-name" required class="form__input form__input_type_name" type="text" >
@@ -63,7 +62,7 @@
       <div class="popup popup_type_add"><!--Попап добавления карточки-->
         <div class="popup__container">
           <button class="popup__close-button" type="button"></button>
-          <form action="#" class="form" name="form">
+          <form action="#" class="form" name="form-add">
             <fieldset class="form__fields">
               <legend class="form__title">Новое место</legend>
               <input placeholder="Название" name="input-name" required class="form__input form__input_type_name" type="text" >
