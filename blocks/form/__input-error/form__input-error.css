@@ -1,0 +1,8 @@
+.form__input-error{
+  max-height: fit-content;
+  display: none;
+  font-size: 12px;
+  font-weight: 400;
+  min-height: 24px;
+  margin: -10px 0 -14px;
+}

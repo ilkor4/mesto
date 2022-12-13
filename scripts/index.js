@@ -43,6 +43,7 @@ const initialCards = [
 ];
 // Переменные (Открытие/Закрытие попапа для добавления карточек)
 const addPopupElement = document.querySelector('.popup_type_add');
+const popupList = Array.from(document.querySelectorAll('.popup'));
 const addPopupCardsElement = document.querySelector('.elements');
 const addFormElement = addPopupElement.querySelector('.form');
 const addFormInputNameElemeent = addFormElement.querySelector('.form__input_type_name');
@@ -61,6 +62,7 @@ function closePopup(popup) {
 // Функция (Открытия попапа)
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  closePopupByEsc(popup);
 }
 // Функция (Редактирование профиля)
 function changeProfile(evt) {
@@ -110,7 +112,27 @@ function renderCard(template, item, itemContainer) {
 }
 // Функция (Добавление исходных карточек на страницу)
 initialCards.forEach((item) => renderCard(cardElement, item, addPopupCardsElement));
-
+// Функция (Закрытие попапа на оверлэй)
+function closePopupByOverlay(evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(evt.target);
+} else {
+  return;
+}
+}
+// Функция (Добавление закрытия на esc)
+function closePopupByEsc(popup) {
+  document.addEventListener('keydown', (evt) => {
+    if (evt.keyCode === 27) {
+      closePopup(popup);
+    }
+  })
+}
+// Функция (Выключение кнопки при открытии попапа)
+function disableSubmitButton(popup) {
+  const buttonSubmitElement = popup.querySelector('.form__save-button');
+  buttonSubmitElement.classList.add('form__save-button_disabled');
+}
 
 // Обработчик события открытия попапа для редактирования профиля
 profileEditButtonElement.addEventListener('click',() => {
@@ -121,6 +143,7 @@ profileEditButtonElement.addEventListener('click',() => {
 // Обработчик события открытия попапа для добавления карточек
 profileAddButtonElement.addEventListener('click',() => {
   openPopup(addPopupElement);
+  disableSubmitButton(addPopupElement);
   addFormInputNameElemeent.value = '';
   addFormInputLinkElement.value = '';
 });
@@ -141,3 +164,8 @@ popupCloseButtonsElement.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
+// Обработчик события для закрытия попапа через оверлэй
+popupList.forEach((popup) => {
+  popup.addEventListener('click', (evt) => closePopupByOverlay(evt));
+});
+
