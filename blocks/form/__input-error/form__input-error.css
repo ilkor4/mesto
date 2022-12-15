@@ -2,7 +2,9 @@
   max-height: fit-content;
   display: none;
   font-size: 12px;
+  line-height: 1.25;
   font-weight: 400;
-  min-height: 24px;
+  min-height: 30px;
   margin: -10px 0 -14px;
+  color: red;
 }
