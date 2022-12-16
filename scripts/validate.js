@@ -42,21 +42,21 @@ const hasInvalidInput = (inputList) => {
 }
 // Функция (Активация кнопки)
 const enableButtonState = (buttonElement, validationConfig) => {
-  buttonElement.classList.add(validationConfig.inactiveButtonClass);
-  buttonElement.setAttribute('disabled', true);
+  buttonElement.classList.remove(validationConfig.inactiveButtonClass);
+  buttonElement.removeAttribute('disabled');
 }
 // Функция (Выключения кнопки)
 const disableButtonState = (buttonElement, validationConfig) => {
-  buttonElement.classList.remove(validationConfig.inactiveButtonClass);
-  buttonElement.removeAttribute('disabled');
+  buttonElement.classList.add(validationConfig.inactiveButtonClass);
+  buttonElement.setAttribute('disabled', true);
 }
 
 // Функция (Изменение кнопки submit)
 const toggleButtonState = (inputList, buttonElement, validationConfig) => {
   if (hasInvalidInput(inputList)) {
-    enableButtonState(buttonElement, validationConfig);
-  } else {
     disableButtonState(buttonElement, validationConfig);
+  } else {
+    enableButtonState(buttonElement, validationConfig);
   }
 }
 
@@ -69,4 +69,4 @@ const enableValidation = (validationConfig) => {
   });
 };
 
-enableValidation(initialValidationValidation);
+enableValidation(validationConfig);

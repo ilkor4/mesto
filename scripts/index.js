@@ -4,9 +4,9 @@ const profileNameElement = document.querySelector('.profile__name');
 const profileSignatureElement = document.querySelector('.profile__signature');
 const editPopupElement = document.querySelector('.popup_type_edit');
 const popupCloseButtonsElement = document.querySelectorAll('.popup__close-button');
-const formElement = editPopupElement.querySelector('.form');
-const formInputNameElement = formElement.querySelector('.form__input_type_name');
-const formInputSignatureElement = formElement.querySelector('.form__input_type_signature');
+const editFormElement = editPopupElement.querySelector('.form');
+const formInputNameElement = editFormElement.querySelector('.form__input_type_name');
+const formInputSignatureElement = editFormElement.querySelector('.form__input_type_signature');
 // Переменные (Добавление карточек)
 const cardElement = document.querySelector('#card');
 // Переменные (Открытие/Закрытие попапа для добавления карточек)
@@ -85,8 +85,7 @@ function closePopupByOverlayClick(evt) {
 // Функция (Выключение кнопки при открытии попапа)
 function disableSubmitButton(popup) {
   const buttonSubmitElement = popup.querySelector('.form__save-button');
-  buttonSubmitElement.classList.add('form__save-button_disabled');
-  buttonSubmitElement.setAttribute('disabled', 'true');
+  disableButtonState(buttonSubmitElement, validationConfig);
 };
 
 const closePopupByEsc = (evt) => {
@@ -109,7 +108,7 @@ profileAddButtonElement.addEventListener('click',() => {
   addFormElement.reset();
 });
 // Обработчик события изменения профиля
-formElement.addEventListener('submit', changeProfile);
+editFormElement.addEventListener('submit', changeProfile);
 // Обработчик события добавления новой карточки
 addFormElement.addEventListener('submit',(evt) => {
   evt.preventDefault();

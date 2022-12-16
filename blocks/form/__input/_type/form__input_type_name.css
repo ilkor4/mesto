@@ -1,9 +1,9 @@
 .form__input_type_name {
-  margin: 27px auto 15px;
+  margin: 27px auto 5px;
 }
 
 @media  screen and (max-width: 568px) {
   .form__input_type_name{
-    margin: 37px auto 15px;
+    margin: 37px auto 5px;
   }
 }
