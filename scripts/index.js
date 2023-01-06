@@ -1,3 +1,5 @@
+import { initialCards } from "./constans.js";
+
 // Переменные (Открытие/Закрытие попапа для редактирование профиля)
 const profileEditButtonElement = document.querySelector('.profile__edit-button');
 const profileNameElement = document.querySelector('.profile__name');
@@ -129,3 +131,4 @@ popupList.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => closePopupByOverlayClick(evt));
 });
 
+export{openPopup, photoPopupElement, photoPopupImageElement, photoPopupTitleElement}

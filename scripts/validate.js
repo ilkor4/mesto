@@ -1,3 +1,4 @@
+import { validationConfig } from "./constans.js";
 // Функция (Показ ошибки)
 const showInputError = (formElement, inputElement, errorMessage, validationConfig) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);

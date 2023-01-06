@@ -1,3 +1,4 @@
+const templateSelector = document.querySelector('#card');
 const initialCards = [
   {
     name: 'Алтай',
@@ -38,3 +39,5 @@ const validationConfig = {
   inputErrorClass: 'form__input_type_error',
   errorClass: 'form__input-error_active'
 }
+
+export{initialCards, validationConfig, templateSelector};
