@@ -71,3 +71,5 @@ const enableValidation = (validationConfig) => {
 };
 
 enableValidation(validationConfig);
+
+export {disableButtonState};

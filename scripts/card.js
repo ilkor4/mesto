@@ -1,13 +1,11 @@
-import { initialCards, templateSelector } from "./constans.js";
-import { openPopup, photoPopupElement, photoPopupImageElement, photoPopupTitleElement } from "./index.js";
-
 // Класс объекта карточки
-class Card {
-  constructor (data, templateSelector) {
+export default class Card {
+  constructor (data, templateSelector, openPhotoFunction) {
     this._title = data.name;
     this._imageLink = data.link;
     this._imageAlt = data.alt;
     this._templateSelector = templateSelector;
+    this._openPhoto = openPhotoFunction;
   }
 // Получить темплэйт
   _getTemplate () {
@@ -35,7 +33,7 @@ class Card {
   _setEventListeners () {
     this._element.querySelector('.element__heart').addEventListener('click', (evt) => this._likeCard(evt));
     this._element.querySelector('.element__delete-button').addEventListener('click', (evt) => this._deleteCard(evt));
-    this._element.querySelector('.element__image').addEventListener('click', (evt) => this._openPhoto(evt));
+    this._element.querySelector('.element__image').addEventListener('click', this._openPhoto);
   }
   // Лайкнуть карточку
   _likeCard (evt) {
@@ -45,19 +43,4 @@ class Card {
   _deleteCard (evt) {
     evt.target.closest('.element').remove();
   }
-  // Открыть фото
-  _openPhoto (evt) {
-    openPopup(photoPopupElement);
-    photoPopupImageElement.setAttribute('src', evt.target.getAttribute('src'));
-    photoPopupImageElement.setAttribute('alt', evt.target.getAttribute('alt'));
-    photoPopupTitleElement.textContent = evt.target.getAttribute('alt');
-  }
 }
-// Создать исходные карточки
-initialCards.forEach((data) => {
-  const card = new Card (data, templateSelector);
-
-  const cardElement = card.generateCard();
-
-  document.querySelector('.elements').prepend(cardElement);
-});
