@@ -1,5 +1,6 @@
-import {initialCards, validationConfig, templateSelector, editPopupElement, profileEditButtonElement, profileNameElement, profileSignatureElement, popupCloseButtonsElement, editFormElement, formInputNameElement, formInputSignatureElement, addPopupElement, popupList, addPopupCardsElement, addFormElement, addFormInputNameElemeent, addFormInputLinkElement, profileAddButtonElement, photoPopupElement, photoPopupImageElement, photoPopupTitleElement} from "./constans.js";
+import {initialCards, validationConfig, templateSelector, editPopupElement, profileEditButtonElement, profileNameElement, profileSignatureElement, popupCloseButtonsElement, editFormElement, formInputNameElement, formInputSignatureElement, addPopupElement, popupList, addPopupCardsElement, addFormElement, addFormInputNameElemeent, addFormInputLinkElement, profileAddButtonElement, photoPopupElement, photoPopupImageElement, photoPopupTitleElement, disableButtonConfig, formListElement} from "./constans.js";
 import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 
 // Функция (Закрытия попапа)
 function closePopup(popup) {
@@ -45,10 +46,12 @@ function closePopupByOverlayClick(evt) {
 }
 };
 // Функция (Выключение кнопки при открытии попапа)
-function disableSubmitButton(popup) {
-  const buttonSubmitElement = popup.querySelector('.form__save-button');
+function disableSubmitButton(popup, disableButtonConfig) {
+  const formElement  = popup.querySelector(disableButtonConfig.formSelector);
+  const buttonSubmitElement = formElement.querySelector(disableButtonConfig.saveButtonSelector);
+  const formValidator = new FormValidator(validationConfig, formElement);
 
-  disableButtonState(buttonSubmitElement, validationConfig);
+  formValidator._disableButtonState(buttonSubmitElement);
 };
 // Функция (Закрытие попапа на esc)
 const closePopupByEsc = (evt) => {
@@ -60,6 +63,12 @@ const closePopupByEsc = (evt) => {
 };
 // Функция (Создание исходных карточек)
 initialCards.forEach((data) => renderCard (templateSelector, data , addPopupCardsElement, openPhoto));
+// Функция (Включение валидации)
+formListElement.forEach((formElement) => {
+  const formValidator = new FormValidator(validationConfig, formElement);
+
+  formValidator.enableValidation();
+});
 
 // Обработчик события открытия попапа для редактирования профиля
 profileEditButtonElement.addEventListener('click',() => {
@@ -72,7 +81,7 @@ profileEditButtonElement.addEventListener('click',() => {
 profileAddButtonElement.addEventListener('click',() => {
   openPopup(addPopupElement);
 
-  disableSubmitButton(addPopupElement);
+  disableSubmitButton(addPopupElement, disableButtonConfig);
 
   addFormElement.reset();
 });

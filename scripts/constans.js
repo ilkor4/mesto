@@ -21,6 +21,8 @@ const photoPopupImageElement = photoPopupElement.querySelector('.popup__image');
 const photoPopupTitleElement = photoPopupElement.querySelector('.popup__title');
 // Переменная (Выбор темплэйта)
 const templateSelector = document.querySelector('#card');
+// Переменная (Псевдомассив форм)
+const formListElement = document.querySelectorAll('.form')
 // Массив (Исходные карточки)
 const initialCards = [
   {
@@ -56,12 +58,16 @@ const initialCards = [
 ];
 // Массив (Данные для валидации)
 const validationConfig = {
-  formSelector: '.form',
   inputSelector: '.form__input',
   submitButtonSelector: '.form__save-button',
   inactiveButtonClass: 'form__save-button_disabled',
   inputErrorClass: 'form__input_type_error',
   errorClass: 'form__input-error_active'
 }
+// Массив (Данные для выключения кнопки)
+const disableButtonConfig = {
+  formSelector: '.form',
+  saveButtonSelector: '.form__save-button',
+}
 
-export{initialCards, validationConfig, templateSelector, profileEditButtonElement, profileNameElement, profileSignatureElement, popupCloseButtonsElement, editFormElement, formInputNameElement, formInputSignatureElement, addPopupElement, popupList, addPopupCardsElement, addFormElement, addFormInputNameElemeent, addFormInputLinkElement, profileAddButtonElement, photoPopupElement, photoPopupImageElement, photoPopupTitleElement, editPopupElement};
+export{initialCards, validationConfig, templateSelector, profileEditButtonElement, profileNameElement, profileSignatureElement, popupCloseButtonsElement, editFormElement, formInputNameElement, formInputSignatureElement, addPopupElement, popupList, addPopupCardsElement, addFormElement, addFormInputNameElemeent, addFormInputLinkElement, profileAddButtonElement, photoPopupElement, photoPopupImageElement, photoPopupTitleElement, editPopupElement, disableButtonConfig, formListElement};
