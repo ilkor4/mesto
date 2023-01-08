@@ -1,5 +1,5 @@
 import { initialCards, validationConfig, templateSelector, editPopupElement, profileEditButtonElement, profileNameElement, profileSignatureElement, popupCloseButtonsElement, editFormElement, formInputNameElement, formInputSignatureElement, addPopupElement, popupList, addPopupCardsElement, addFormElement, addFormInputNameElemeent, addFormInputLinkElement, profileAddButtonElement, photoPopupElement, photoPopupImageElement, photoPopupTitleElement, disableButtonConfig, formListElement } from './constans.js';
-import { Card } from './Card.js'
+import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
 
 // Функция (Закрытия попапа)
