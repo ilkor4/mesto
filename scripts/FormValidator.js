@@ -1,12 +1,12 @@
 // Класс валидация формы
 class FormValidator {
   constructor(validationConfig, formElement) {
-  this._inputSelector = validationConfig.inputSelector;
-  this._submitButtonSelector = validationConfig.submitButtonSelector;
-  this._inactiveButtonClass = validationConfig.inactiveButtonClass;
-  this._inputErrorClass = validationConfig.inputErrorClass;
-  this._errorClass = validationConfig.errorClass;
-  this._formElement  = formElement;
+    this._inputSelector = validationConfig.inputSelector;
+    this._submitButtonSelector = validationConfig.submitButtonSelector;
+    this._inactiveButtonClass = validationConfig.inactiveButtonClass;
+    this._inputErrorClass = validationConfig.inputErrorClass;
+    this._errorClass = validationConfig.errorClass;
+    this._formElement  = formElement;
   }
   // Метод (Включение валидации)
   enableValidation() {
