@@ -70,4 +70,4 @@ const disableButtonConfig = {
   saveButtonSelector: '.form__save-button',
 }
 
-export{initialCards, validationConfig, templateSelector, profileEditButtonElement, profileNameElement, profileSignatureElement, popupCloseButtonsElement, editFormElement, formInputNameElement, formInputSignatureElement, addPopupElement, popupList, addPopupCardsElement, addFormElement, addFormInputNameElemeent, addFormInputLinkElement, profileAddButtonElement, photoPopupElement, photoPopupImageElement, photoPopupTitleElement, editPopupElement, disableButtonConfig, formListElement};
+export{ initialCards, validationConfig, templateSelector, profileEditButtonElement, profileNameElement, profileSignatureElement, popupCloseButtonsElement, editFormElement, formInputNameElement, formInputSignatureElement, addPopupElement, popupList, addPopupCardsElement, addFormElement, addFormInputNameElemeent, addFormInputLinkElement, profileAddButtonElement, photoPopupElement, photoPopupImageElement, photoPopupTitleElement, editPopupElement, disableButtonConfig, formListElement };

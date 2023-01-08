@@ -1,5 +1,5 @@
 // Класс объекта карточки
-export default class Card {
+class Card {
   constructor(data, templateSelector, openPhotoFunction) {
     this._title = data.name;
     this._imageLink = data.link;
@@ -44,3 +44,4 @@ export default class Card {
     evt.target.closest('.element').remove();
   }
 }
+ export { Card };

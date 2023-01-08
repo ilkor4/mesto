@@ -1,5 +1,5 @@
 // Класс валидация формы
-export default class FormValidator {
+class FormValidator {
   constructor(validationConfig, formElement) {
   this._inputSelector = validationConfig.inputSelector;
   this._submitButtonSelector = validationConfig.submitButtonSelector;
@@ -73,3 +73,4 @@ export default class FormValidator {
     buttonElement.setAttribute('disabled', true);
   }
 }
+ export{ FormValidator };
