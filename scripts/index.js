@@ -1,4 +1,4 @@
-import { initialCards, validationConfig, templateSelector, editPopupElement, profileEditButtonElement, profileNameElement, profileSignatureElement, popupCloseButtonsElement, editFormElement, formInputNameElement, formInputSignatureElement, addPopupElement, popupList, addPopupCardsElement, addFormElement, addFormInputNameElemeent, addFormInputLinkElement, profileAddButtonElement, photoPopupElement, photoPopupImageElement, photoPopupTitleElement, disableButtonConfig, formListElement } from './constans.js';
+import { initialCards, validationConfig, templateSelector, formListElement, buttonEditProfile, nameProfileElement, signatureProfileElement, popupEditElement, buttonsCloseElement, formEditElement, inputNameEditPopup, inputSignatureElement, popupAddElement, popupListElement, cardsAddPopup, formAddElement, inputNameAddPopup, inputLinkElement, buttonAddProfile, photoPopupElement, imagePhoptoPopupElement, titlePhotoPopupElement } from './constans.js';
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
 
@@ -18,10 +18,10 @@ function openPopup(popup) {
 function changeProfile(evt) {
   evt.preventDefault();
 
-  profileNameElement.textContent = formInputNameElement.value;
-  profileSignatureElement.textContent = formInputSignatureElement.value;
+  nameProfileElement.textContent = inputNameEditPopup.value;
+  signatureProfileElement.textContent = inputSignatureElement.value;
 
-  closePopup(editPopupElement);
+  closePopup(popupEditElement);
 };
 // Функция (Рендеринг карточки)
 function renderCard(templateSelector, data, itemContainer, openPhotoFunction) {
@@ -33,25 +33,17 @@ function renderCard(templateSelector, data, itemContainer, openPhotoFunction) {
 }
 // Функция (Открытие попапа с фото)
 const openPhoto = (evt) => {
-  openPopup(photoPopupElement);
+  imagePhoptoPopupElement.setAttribute('src', evt.target.getAttribute('src'));
+  imagePhoptoPopupElement.setAttribute('alt', evt.target.getAttribute('alt'));
+  titlePhotoPopupElement.textContent = evt.target.getAttribute('alt');
 
-  photoPopupImageElement.setAttribute('src', evt.target.getAttribute('src'));
-  photoPopupImageElement.setAttribute('alt', evt.target.getAttribute('alt'));
-  photoPopupTitleElement.textContent = evt.target.getAttribute('alt');
+  openPopup(photoPopupElement);
 }
 // Функция (Закрытие попапа на оверлэй)
 function closePopupByOverlayClick(evt) {
   if (evt.target === evt.currentTarget) {
     closePopup(evt.target);
 }
-};
-// Функция (Выключение кнопки при открытии попапа)
-function disableSubmitButton(popup, disableButtonConfig) {
-  const formElement  = popup.querySelector(disableButtonConfig.formSelector);
-  const buttonSubmitElement = formElement.querySelector(disableButtonConfig.saveButtonSelector);
-  const formValidator = new FormValidator(validationConfig, formElement);
-
-  formValidator._disableButtonState(buttonSubmitElement);
 };
 // Функция (Закрытие попапа на esc)
 const closePopupByEsc = (evt) => {
@@ -62,7 +54,7 @@ const closePopupByEsc = (evt) => {
   }
 };
 // Функция (Создание исходных карточек)
-initialCards.forEach((data) => renderCard (templateSelector, data , addPopupCardsElement, openPhoto));
+initialCards.forEach((data) => renderCard (templateSelector, data , cardsAddPopup, openPhoto));
 // Функция (Включение валидации)
 formListElement.forEach((formElement) => {
   const formValidator = new FormValidator(validationConfig, formElement);
@@ -71,39 +63,37 @@ formListElement.forEach((formElement) => {
 });
 
 // Обработчик события открытия попапа для редактирования профиля
-profileEditButtonElement.addEventListener('click',() => {
-  openPopup(editPopupElement);
+buttonEditProfile.addEventListener('click',() => {
+  openPopup(popupEditElement);
 
-  formInputNameElement.value = profileNameElement.textContent;
-  formInputSignatureElement.value = profileSignatureElement.textContent;
+  inputNameEditPopup.value = nameProfileElement.textContent;
+  inputSignatureElement.value = signatureProfileElement.textContent;
 });
 // Обработчик события открытия попапа для добавления карточек
-profileAddButtonElement.addEventListener('click',() => {
-  openPopup(addPopupElement);
+buttonAddProfile.addEventListener('click',() => {
+  openPopup(popupAddElement);
 
-  disableSubmitButton(addPopupElement, disableButtonConfig);
-
-  addFormElement.reset();
+  formAddElement.reset();
 });
 // Обработчик события изменения профиля
-editFormElement.addEventListener('submit', changeProfile);
+formEditElement.addEventListener('submit', changeProfile);
 // Обработчик события добавления новой карточки
-addFormElement.addEventListener('submit',(evt) => {
+formAddElement.addEventListener('submit',(evt) => {
   evt.preventDefault();
   renderCard(templateSelector, {
-    name: addFormInputNameElemeent.value,
-    link: addFormInputLinkElement.value,
-    alt: addFormInputNameElemeent.value
-  }, addPopupCardsElement, openPhoto);
-  closePopup(addPopupElement);
+    name: inputNameAddPopup.value,
+    link: inputLinkElement.value,
+    alt: inputNameAddPopup.value
+  }, cardsAddPopup, openPhoto);
+  closePopup(popupAddElement);
 });
 // Обработчик событития для закрытия попапов
-popupCloseButtonsElement.forEach((button) => {
+buttonsCloseElement.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
 // Обработчик события для закрытия попапа через оверлэй
-popupList.forEach((popup) => {
+popupListElement.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => closePopupByOverlayClick(evt));
 });
 

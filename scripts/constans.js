@@ -1,24 +1,24 @@
 // Переменные (Открытие/Закрытие попапа для редактирование профиля)
-const profileEditButtonElement = document.querySelector('.profile__edit-button');
-const profileNameElement = document.querySelector('.profile__name');
-const profileSignatureElement = document.querySelector('.profile__signature');
-const editPopupElement = document.querySelector('.popup_type_edit');
-const popupCloseButtonsElement = document.querySelectorAll('.popup__close-button');
-const editFormElement = editPopupElement.querySelector('.form');
-const formInputNameElement = editFormElement.querySelector('.form__input_type_name');
-const formInputSignatureElement = editFormElement.querySelector('.form__input_type_signature');
+const buttonEditProfile = document.querySelector('.profile__edit-button');
+const nameProfileElement = document.querySelector('.profile__name');
+const signatureProfileElement = document.querySelector('.profile__signature');
+const popupEditElement = document.querySelector('.popup_type_edit');
+const buttonsCloseElement = document.querySelectorAll('.popup__close-button');
+const formEditElement = popupEditElement.querySelector('.form');
+const inputNameEditPopup = popupEditElement.querySelector('.form__input_type_name');
+const inputSignatureElement = popupEditElement.querySelector('.form__input_type_signature');
 // Переменные (Открытие/Закрытие попапа для добавления карточек)
-const addPopupElement = document.querySelector('.popup_type_add');
-const popupList = Array.from(document.querySelectorAll('.popup'));
-const addPopupCardsElement = document.querySelector('.elements');
-const addFormElement = addPopupElement.querySelector('.form');
-const addFormInputNameElemeent = addFormElement.querySelector('.form__input_type_name');
-const addFormInputLinkElement = addFormElement.querySelector('.form__input_type_link');
-const profileAddButtonElement = document.querySelector('.profile__add-button');
+const popupAddElement = document.querySelector('.popup_type_add');
+const popupListElement = Array.from(document.querySelectorAll('.popup'));
+const cardsAddPopup = document.querySelector('.elements');
+const formAddElement = popupAddElement.querySelector('.form');
+const inputNameAddPopup = formAddElement.querySelector('.form__input_type_name');
+const inputLinkElement = formAddElement.querySelector('.form__input_type_link');
+const buttonAddProfile = document.querySelector('.profile__add-button');
 // Переменные (Открытие/Закрытие попапа для просмотра фото)
 const photoPopupElement = document.querySelector('.popup_type_photo');
-const photoPopupImageElement = photoPopupElement.querySelector('.popup__image');
-const photoPopupTitleElement = photoPopupElement.querySelector('.popup__title');
+const imagePhoptoPopupElement = photoPopupElement.querySelector('.popup__image');
+const titlePhotoPopupElement = photoPopupElement.querySelector('.popup__title');
 // Переменная (Выбор темплэйта)
 const templateSelector = document.querySelector('#card');
 // Переменная (Псевдомассив форм)
@@ -64,10 +64,4 @@ const validationConfig = {
   inputErrorClass: 'form__input_type_error',
   errorClass: 'form__input-error_active'
 }
-// Массив (Данные для выключения кнопки)
-const disableButtonConfig = {
-  formSelector: '.form',
-  saveButtonSelector: '.form__save-button',
-}
-
-export{ initialCards, validationConfig, templateSelector, profileEditButtonElement, profileNameElement, profileSignatureElement, popupCloseButtonsElement, editFormElement, formInputNameElement, formInputSignatureElement, addPopupElement, popupList, addPopupCardsElement, addFormElement, addFormInputNameElemeent, addFormInputLinkElement, profileAddButtonElement, photoPopupElement, photoPopupImageElement, photoPopupTitleElement, editPopupElement, disableButtonConfig, formListElement };
+export{ initialCards, validationConfig, templateSelector, formListElement, buttonEditProfile, nameProfileElement, signatureProfileElement, popupEditElement, buttonsCloseElement, formEditElement, inputNameEditPopup, inputSignatureElement, popupAddElement, popupListElement, cardsAddPopup, formAddElement, inputNameAddPopup, inputLinkElement, buttonAddProfile, photoPopupElement, imagePhoptoPopupElement, titlePhotoPopupElement }

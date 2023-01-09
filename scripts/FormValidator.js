@@ -7,6 +7,8 @@ class FormValidator {
     this._inputErrorClass = validationConfig.inputErrorClass;
     this._errorClass = validationConfig.errorClass;
     this._formElement  = formElement;
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+    this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
   }
   // Метод (Включение валидации)
   enableValidation() {
@@ -14,13 +16,12 @@ class FormValidator {
   }
   // Метод (Добавление обработчиков)
   _setEventListeners() {
-    const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
-    const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
+    this._inputList.forEach((inputElement) => {
+      this._disableSubmitButton(inputElement);
 
-    inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._toggleInputErrorState(inputElement);
-        this._toggleButtonState(inputList, buttonElement);
+        this._toggleButtonState();
       });
     });
   }
@@ -33,15 +34,15 @@ class FormValidator {
     };
   }
   // Метод (Изменение кнопки submit)
-  _toggleButtonState(inputList, buttonElement) {
-    if (this._hasInvalidInput(inputList)) {
-      this._disableButtonState(buttonElement);
+  _toggleButtonState() {
+    if (this._hasInvalidInput()) {
+      this._disableButtonState();
     } else {
-      this._enableButtonState(buttonElement);
+      this._enableButtonState();
     }
   }
   // Метод (Показ ошибки)
-  _showInputError(inputElement, errorMessage,) {
+  _showInputError(inputElement, errorMessage) {
     const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
 
     inputElement.classList.add(this._inputErrorClass);
@@ -57,20 +58,28 @@ class FormValidator {
     errorElement.textContent = '';
   }
   // Метод (Проверка всех полей)
-  _hasInvalidInput(inputList) {
-    return inputList.some((inputElement) => {
+  _hasInvalidInput() {
+    return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   }
   // Функция (Активация кнопки)
-  _enableButtonState(buttonElement) {
-    buttonElement.classList.remove(this._inactiveButtonClass);
-    buttonElement.removeAttribute('disabled');
+  _enableButtonState() {
+    this._buttonElement.classList.remove(this._inactiveButtonClass);
+    this._buttonElement.removeAttribute('disabled');
   }
   // Функция (Выключения кнопки)
-  _disableButtonState(buttonElement) {
-    buttonElement.classList.add(this._inactiveButtonClass);
-    buttonElement.setAttribute('disabled', true);
+  _disableButtonState() {
+    this._buttonElement.classList.add(this._inactiveButtonClass);
+    this._buttonElement.setAttribute('disabled', true);
+  }
+  // Функция (Выключение кнопки при открытии попапа)
+  _disableSubmitButton(inputElement) {
+  if (inputElement.value === "") {
+    this._disableButtonState();
+    }
   }
 }
+
+
  export{ FormValidator };

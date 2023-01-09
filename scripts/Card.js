@@ -9,7 +9,7 @@ class Card {
   }
 // Получить темплэйт
   _getTemplate() {
-    const cardElement = document.querySelector(`#${this._templateSelector.id}`).content.cloneNode(true);
+    const cardElement = document.querySelector(`#${this._templateSelector.id}`).content.children[0].cloneNode(true);
 
     return cardElement;
   }
@@ -31,17 +31,18 @@ class Card {
   }
   // Навесить слушатели
   _setEventListeners() {
-    this._element.querySelector('.element__heart').addEventListener('click', (evt) => this._likeCard(evt));
-    this._element.querySelector('.element__delete-button').addEventListener('click', (evt) => this._deleteCard(evt));
+    this._element.querySelector('.element__heart').addEventListener('click', () => this._likeCard());
+    this._element.querySelector('.element__delete-button').addEventListener('click', () => this._deleteCard());
     this._element.querySelector('.element__image').addEventListener('click', this._openPhoto);
   }
   // Лайкнуть карточку
-  _likeCard(evt) {
-    evt.target.classList.toggle('element__heart_type_active');
+  _likeCard() {
+    this._element.querySelector('.element__heart').classList.toggle('element__heart_type_active');
   }
   // Удалить карточку
-  _deleteCard(evt) {
-    evt.target.closest('.element').remove();
+  _deleteCard() {
+    this._element.remove();
+    this._element = null;
   }
 }
  export { Card };
