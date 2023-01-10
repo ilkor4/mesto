@@ -71,9 +71,13 @@ buttonEditProfile.addEventListener('click',() => {
 });
 // Обработчик события открытия попапа для добавления карточек
 buttonAddProfile.addEventListener('click',() => {
-  openPopup(popupAddElement);
+  const formValidator = new FormValidator(validationConfig, formAddElement);
+
+  formValidator.disableButtonState();
 
   formAddElement.reset();
+
+  openPopup(popupAddElement);
 });
 // Обработчик события изменения профиля
 formEditElement.addEventListener('submit', changeProfile);

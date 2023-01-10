@@ -9,7 +9,7 @@ class Card {
   }
 // Получить темплэйт
   _getTemplate() {
-    const cardElement = document.querySelector(`#${this._templateSelector.id}`).content.children[0].cloneNode(true);
+    const cardElement = document.querySelector(`#${this._templateSelector.id}`).content.querySelector('.element').cloneNode(true);
 
     return cardElement;
   }

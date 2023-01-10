@@ -17,8 +17,6 @@ class FormValidator {
   // Метод (Добавление обработчиков)
   _setEventListeners() {
     this._inputList.forEach((inputElement) => {
-      this._disableSubmitButton(inputElement);
-
       inputElement.addEventListener('input', () => {
         this._toggleInputErrorState(inputElement);
         this._toggleButtonState();
@@ -36,7 +34,7 @@ class FormValidator {
   // Метод (Изменение кнопки submit)
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
-      this._disableButtonState();
+      this.disableButtonState();
     } else {
       this._enableButtonState();
     }
@@ -69,15 +67,9 @@ class FormValidator {
     this._buttonElement.removeAttribute('disabled');
   }
   // Функция (Выключения кнопки)
-  _disableButtonState() {
+  disableButtonState() {
     this._buttonElement.classList.add(this._inactiveButtonClass);
     this._buttonElement.setAttribute('disabled', true);
-  }
-  // Функция (Выключение кнопки при открытии попапа)
-  _disableSubmitButton(inputElement) {
-  if (inputElement.value === "") {
-    this._disableButtonState();
-    }
   }
 }
 
