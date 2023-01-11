@@ -21,8 +21,6 @@ const imagePhoptoPopupElement = photoPopupElement.querySelector('.popup__image')
 const titlePhotoPopupElement = photoPopupElement.querySelector('.popup__title');
 // Переменная (Выбор темплэйта)
 const templateSelector = document.querySelector('#card');
-// Переменная (Псевдомассив форм)
-const formListElement = document.querySelectorAll('.form')
 // Массив (Исходные карточки)
 const initialCards = [
   {
@@ -64,4 +62,4 @@ const validationConfig = {
   inputErrorClass: 'form__input_type_error',
   errorClass: 'form__input-error_active'
 }
-export{ initialCards, validationConfig, templateSelector, formListElement, buttonEditProfile, nameProfileElement, signatureProfileElement, popupEditElement, buttonsCloseElement, formEditElement, inputNameEditPopup, inputSignatureElement, popupAddElement, popupListElement, cardsAddPopup, formAddElement, inputNameAddPopup, inputLinkElement, buttonAddProfile, photoPopupElement, imagePhoptoPopupElement, titlePhotoPopupElement }
+export{ initialCards, validationConfig, templateSelector, buttonEditProfile, nameProfileElement, signatureProfileElement, popupEditElement, buttonsCloseElement, formEditElement, inputNameEditPopup, inputSignatureElement, popupAddElement, popupListElement, cardsAddPopup, formAddElement, inputNameAddPopup, inputLinkElement, buttonAddProfile, photoPopupElement, imagePhoptoPopupElement, titlePhotoPopupElement }

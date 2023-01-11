@@ -1,7 +1,9 @@
-import { initialCards, validationConfig, templateSelector, formListElement, buttonEditProfile, nameProfileElement, signatureProfileElement, popupEditElement, buttonsCloseElement, formEditElement, inputNameEditPopup, inputSignatureElement, popupAddElement, popupListElement, cardsAddPopup, formAddElement, inputNameAddPopup, inputLinkElement, buttonAddProfile, photoPopupElement, imagePhoptoPopupElement, titlePhotoPopupElement } from './constans.js';
+import { initialCards, validationConfig, templateSelector, buttonEditProfile, nameProfileElement, signatureProfileElement, popupEditElement, buttonsCloseElement, formEditElement, inputNameEditPopup, inputSignatureElement, popupAddElement, popupListElement, cardsAddPopup, formAddElement, inputNameAddPopup, inputLinkElement, buttonAddProfile, photoPopupElement, imagePhoptoPopupElement, titlePhotoPopupElement } from './constans.js';
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
-
+// Константы (Валидация форм)
+const formEditValidator = new FormValidator(validationConfig, formEditElement);
+const formAddValidator = new FormValidator(validationConfig, formAddElement);
 // Функция (Закрытия попапа)
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
@@ -55,12 +57,7 @@ const closePopupByEsc = (evt) => {
 };
 // Функция (Создание исходных карточек)
 initialCards.forEach((data) => renderCard (templateSelector, data , cardsAddPopup, openPhoto));
-// Функция (Включение валидации)
-formListElement.forEach((formElement) => {
-  const formValidator = new FormValidator(validationConfig, formElement);
 
-  formValidator.enableValidation();
-});
 
 // Обработчик события открытия попапа для редактирования профиля
 buttonEditProfile.addEventListener('click',() => {
@@ -71,9 +68,7 @@ buttonEditProfile.addEventListener('click',() => {
 });
 // Обработчик события открытия попапа для добавления карточек
 buttonAddProfile.addEventListener('click',() => {
-  const formValidator = new FormValidator(validationConfig, formAddElement);
-
-  formValidator.disableButtonState();
+  formAddValidator.disableButtonState();
 
   formAddElement.reset();
 
@@ -101,3 +96,6 @@ popupListElement.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => closePopupByOverlayClick(evt));
 });
 
+// Вызов функций (Включение валидации)
+formEditValidator.enableValidation();
+formAddValidator.enableValidation();
